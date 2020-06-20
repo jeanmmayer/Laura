@@ -1,0 +1,14 @@
+version: "3"
+services:
+  tad:
+    image: postgres
+    container_name: "postgres"
+    environment:
+      - POSTGRES_DB=laura_jean
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - TZ=GMT
+    volumes:
+      - "/temp/database:/var/lib/postgresql/data"
+    ports:
+      - 5432:5432
