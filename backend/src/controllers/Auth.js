@@ -21,21 +21,15 @@ module.exports = {
             }
         });
 
-        console.log(user);
-
-        // User.findOne({ email }, (err, user) => {
-        //     if(err) {
-        //         return sendErrorsFromDB(res, err);
-        //     } else if (user && bcrypt.compareSync(password, user.password)) {
-        //         const token = jwt.sign(user, env.authSecret, {
-        //             expiresIn: "1 day"
-        //         });
-        //         const { name, email } = user;
-        //         res.json({ name, email, token })
-        //     } else {
-        //         return res.status(400).send({ errors: ['Usuário ou senha inválidos']});
-        //     }
-        // });
+        if (user && bcrypt.compareSync(password, user.password)) {
+            const token = jwt.sign(user.toJSON(), env.authSecret, {
+                expiresIn: "1 day"
+            });
+            const { name, email } = user;
+            res.json({ name, email, token })
+        } else {
+            return res.status(400).send({ errors: ['Usuário ou senha inválidos']});
+        }
     },
     async validateToken(req, res, next) {
         const token = req.body.token || '';

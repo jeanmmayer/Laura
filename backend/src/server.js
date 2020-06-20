@@ -1,16 +1,14 @@
 const express = require('express');
-const allowCors = require('./config/cors');
-const routes = require('./routes');
+const app = express();
+// const allowCors = require('./config/cors');
+const privateRoutes = require('./privateRoutes');
+const publicRoutes = require('./publicRoutes');
 
 require('./database');
 
-const app = express();
-
-app.use(allowCors);
+// app.use(allowCors);
 app.use(express.json());
-app.use(routes);
-
+app.use('/oapi', publicRoutes);
+app.use('/api', privateRoutes);
 
 app.listen(4000);
-
-module.exports = app;
