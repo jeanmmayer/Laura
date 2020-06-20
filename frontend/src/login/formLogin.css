@@ -1,0 +1,12 @@
+.formLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.formLogin form {
+    width: 350px;
+}
