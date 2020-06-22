@@ -6,6 +6,7 @@ module.exports = {
 			id: {
 				type: Sequelize.INTEGER,
 				primaryKey: true,
+				autoIncrement: true,
 				allowNull: false
 			},
 			med_record: {

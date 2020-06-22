@@ -1,14 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
 
-class User extends Model {
+class alert_history extends Model {
     static init(sequelize) {
         super.init({
             id_alert: DataTypes.INTEGER,
-            text: DataTypes.STRING
+            text: DataTypes.STRING,
+            created_at: DataTypes.DATE
         }, {
-            sequelize
+            sequelize,
+            freezeTableName: true,
+            timestamps: false
         })
     }
 }
 
-module.exports = AlertHistory;
+module.exports = alert_history;

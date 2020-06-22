@@ -1,4 +1,8 @@
 # Laura
+
+Pré-requisitos
+    - Docker
+    - NodeJS
 Projeto
     - git clone https://github.com/jeanmmayer/Laura.git;
 frontend:
@@ -12,4 +16,5 @@ backend:
     - docker-compose up tad;
     - node_modules/.bin/sequelize db:create;
     - node_modules/.bin/sequelize db:migrate;
+    - node_modules/.bin/sequelize db:seed:all;
     - npm run dev;
