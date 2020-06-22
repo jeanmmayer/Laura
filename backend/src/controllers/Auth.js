@@ -4,12 +4,6 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const env = require('../../src/.env');
 
-const sendErrorsFromDB = (res, dbErrors) => {
-    const errors = [];
-    _.forIn(dbErrors, error => errors.push(error.message));
-    return res.status(400).json({errors});
-}
-
 module.exports = {
     async login(req, res, next) {
         const email = req.body.email || '';
