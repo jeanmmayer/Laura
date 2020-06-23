@@ -24,7 +24,7 @@ function login(email, password) {
 
 function logout() {
     localStorage.removeItem('user');
-}
+};
 
 function handleResponse(response) {
     return response.text().then(text => {
@@ -41,4 +41,4 @@ function handleResponse(response) {
 
         return data;
     });
-}
+};

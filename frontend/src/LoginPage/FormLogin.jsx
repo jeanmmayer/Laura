@@ -20,7 +20,6 @@ export default _ => {
     const loggingIn = useSelector(state => state.authentication.loggingIn);
     const dispatch = useDispatch();
 
-    // reset login status
     useEffect(() => {
         dispatch(userActions.logout());
     }, []);
@@ -48,6 +47,8 @@ export default _ => {
                     <Input
                         label="Email"
                         name="email"
+                        margin="10px 0"
+                        padding="15px"
                         value={email}
                         onChange={handleChange}
                         type="email"
@@ -58,6 +59,8 @@ export default _ => {
                     <Input
                         label="Senha"
                         name="password"
+                        margin="10px 0 20px 0"
+                        padding="15px"
                         value={password}
                         onChange={handleChange}
                         type="password"
@@ -77,6 +80,7 @@ export default _ => {
                     />
                     <Button
                         primaryNegative
+                        noBorder
                         upper
                         bold
                         margin="10px 0"

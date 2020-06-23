@@ -5,7 +5,7 @@ let Card = styled.div`
     border-radius: 5px;
     border: none;
     background-color: white;
-    box-shadow: 0 0 5px #ebe9e6;
+    box-shadow: 0 0 8px #ebe9e6;
 `
 
 export default props => {
