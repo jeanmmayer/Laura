@@ -2,7 +2,6 @@ const AlertSymptom = require('../models/AlertSymptom');
 
 module.exports = {
     async list(req, res) {
-        console.log("a");
         const { id_alert } = req.body;
 
         const alert_symptoms = await AlertSymptom.findAll({

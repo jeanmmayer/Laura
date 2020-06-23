@@ -1,0 +1,9 @@
+.logoLogin {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    max-width: 100px;
+    margin-top: -110px;
+}
