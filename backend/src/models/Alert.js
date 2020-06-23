@@ -3,14 +3,18 @@ const { Model, DataTypes } = require('sequelize');
 class Alert extends Model {
     static init(sequelize) {
         super.init({
-            id_patient: DataTypes.INTEGER,
             is_pendent: DataTypes.BOOLEAN,
             created_at: DataTypes.DATE,
             updated_at: DataTypes.DATE
         }, {
             sequelize
         })
-    }
-}
+    };
+
+    static associate(models) {
+        this.hasMany(models.alert_history, { foreignKey: 'alert_id', as: 'history' });
+        this.belongsTo(models.Patient, { foreignKey: 'patient_id', as: 'patient'});
+    };
+};
 
 module.exports = Alert;

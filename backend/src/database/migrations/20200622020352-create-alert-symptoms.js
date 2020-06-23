@@ -9,14 +9,14 @@ module.exports = {
 				autoIncrement: true,
 				allowNull: false
 			},
-			id_alert: {
+			alert_id: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
 				references: {
 					model: 'alerts', key: 'id'
 				}
 			},
-			id_symptom: {
+			symptom_id: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
 				references: {

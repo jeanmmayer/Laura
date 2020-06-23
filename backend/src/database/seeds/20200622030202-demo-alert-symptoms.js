@@ -4,64 +4,64 @@ module.exports = {
 	up: (queryInterface, Sequelize) => {
 		return queryInterface.bulkInsert('alert_symptom', [
 			{
-				id_alert: 1,
-				id_symptom: 1
+				alert_id: 1,
+				symptom_id: 1
 			},
 			{
-				id_alert: 1,
-				id_symptom: 2
+				alert_id: 1,
+				symptom_id: 2
 			},
 			{
-				id_alert: 1,
-				id_symptom: 3
+				alert_id: 1,
+				symptom_id: 3
 			},
 			{
-				id_alert: 1,
-				id_symptom: 4
+				alert_id: 1,
+				symptom_id: 4
 			},
 			{
-				id_alert: 1,
-				id_symptom: 6
+				alert_id: 1,
+				symptom_id: 6
 			},
 			{
-				id_alert: 2,
-				id_symptom: 5
+				alert_id: 2,
+				symptom_id: 5
 			},
 			{
-				id_alert: 2,
-				id_symptom: 2
+				alert_id: 2,
+				symptom_id: 2
 			},
 			{
-				id_alert: 3,
-				id_symptom: 1
+				alert_id: 3,
+				symptom_id: 1
 			},
 			{
-				id_alert: 3,
-				id_symptom: 4
+				alert_id: 3,
+				symptom_id: 4
 			},
 			{
-				id_alert: 4,
-				id_symptom: 5
+				alert_id: 4,
+				symptom_id: 5
 			},
 			{
-				id_alert: 5,
-				id_symptom: 3
+				alert_id: 5,
+				symptom_id: 3
 			},
 			{
-				id_alert: 5,
-				id_symptom: 1
+				alert_id: 5,
+				symptom_id: 1
 			},
 			{
-				id_alert: 6,
-				id_symptom: 7
+				alert_id: 6,
+				symptom_id: 7
 			},
 			{
-				id_alert: 7,
-				id_symptom: 6
+				alert_id: 7,
+				symptom_id: 6
 			},
 			{
-				id_alert: 7,
-				id_symptom: 3
+				alert_id: 7,
+				symptom_id: 3
 			},
 		]);
 	},

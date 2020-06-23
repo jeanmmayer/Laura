@@ -6,7 +6,6 @@ export const dashboardActions = {
 };
 
 function getAlerts() {
-    function request() { return { type: dashboardConstants.GET_ALERTS_REQUEST } };
     function success(alerts) { return { type: dashboardConstants.GET_ALERTS_SUCCESS, alerts } };
     function failure(error) { return { type: dashboardConstants.GET_ALERTS_FAILURE, error } };
 

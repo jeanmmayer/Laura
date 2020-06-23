@@ -10,6 +10,9 @@ const initialState = {
 			'alert_level': 'gray',
 			'created_at': '22/06/20 - 17:10',
 			'is_pendent': true,
+			'patient': {
+				'name': 'John Doe'
+			},
 			'symptoms': [
 				{'name': 'Tosse', 'level': 1}
 			]

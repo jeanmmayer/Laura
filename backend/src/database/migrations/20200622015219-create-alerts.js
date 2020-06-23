@@ -9,7 +9,7 @@ module.exports = {
 				autoIncrement: true,
 				allowNull: false
 			},
-			id_patient: {
+			patient_id: {
 				type: Sequelize.INTEGER,
 				allowNull: false,
 				references: {
