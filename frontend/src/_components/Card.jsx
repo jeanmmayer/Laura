@@ -11,7 +11,11 @@ let Card = styled.div`
 export default props => {
 
     return (
-        <Card style={{padding: props.padding}}>
+        <Card style={{
+            padding: props.padding,
+            margin: props.margin,
+            flex: props.flex
+        }}>
             { props.children }
         </Card>
     )

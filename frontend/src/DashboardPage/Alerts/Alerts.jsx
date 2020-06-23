@@ -1,11 +1,9 @@
 import React from 'react';
 
-function Alerts() {
+export default _ => {
     return (
         <div>
             Alerts
         </div>
     );
 }
-
-export { Alerts };

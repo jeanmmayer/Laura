@@ -7,8 +7,6 @@ import LogoLogin from './LogoLogin';
 import Card from '../_components/Card';
 import './FormLogin.css';
 
-import FormLogin from './FormLogin';
-
 import { userActions } from '../_actions';
 
 export default _ => {
@@ -68,7 +66,7 @@ export default _ => {
                     />
 
                     <Button
-                        primary
+                        primary={true}
                         upper
                         bold
                         loading={loggingIn}
@@ -76,6 +74,14 @@ export default _ => {
                         margin="10px 0"
                         type="button"
                         text="Entrar"
+                    />
+                    <Button
+                        primaryNegative
+                        upper
+                        bold
+                        margin="10px 0"
+                        type="button"
+                        text="Esqueceu a senha?"
                     />
 
                 </form>

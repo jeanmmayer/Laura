@@ -1,11 +1,9 @@
 import React from 'react';
 
-function Steps() {
+export default _ => {
     return (
         <div>
-            Steps
+            Search
         </div>
     );
 }
-
-export { Steps };

@@ -7,6 +7,6 @@
     flex-direction: column;
 }
 
-form {
+.formLogin form {
     width: 350px !important;
 }
