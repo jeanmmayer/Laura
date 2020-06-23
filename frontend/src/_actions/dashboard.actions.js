@@ -11,11 +11,9 @@ function getAlerts() {
     function failure(error) { return { type: dashboardConstants.GET_ALERTS_FAILURE, error } };
 
     return dispatch => {
-        dispatch(request());
-
         dashboardService.getAlerts()
             .then(
-                alert => dispatch(success(alert)),
+                alerts => dispatch(success(alerts)),
                 error => dispatch(failure(error.toString()))
             );
     };

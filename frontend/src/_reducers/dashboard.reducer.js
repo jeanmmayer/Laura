@@ -1,7 +1,21 @@
 import { dashboardConstants } from '../_constants';
 
-let user = JSON.parse(localStorage.getItem('user'));
-const initialState = user ? { loggedIn: true, user } : {};
+const initialState = {
+	loadingAlerts: false,
+	alerts: [
+		{
+			'id': 1,
+			'med_record': '000',
+			'patient_name': 'Nome inicial',
+			'alert_level': 'gray',
+			'created_at': '22/06/20 - 17:10',
+			'is_pendent': true,
+			'symptoms': [
+				{'name': 'Tosse', 'level': 1}
+			]
+		}
+	]
+};
 
 export function dashboard(state = initialState, action) {
 	switch (action.type) {
@@ -12,7 +26,7 @@ export function dashboard(state = initialState, action) {
 		case dashboardConstants.GET_ALERTS_SUCCESS:
 			return {
 				loadingAlerts: false,
-				list: action.list
+				alerts: action.alerts
 			};
 		case dashboardConstants.GET_ALERTS_FAILURE:
 			return {};

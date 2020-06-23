@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AlertStatus from './AlertStatus';
 import AlertLevel from './AlertLevel';
 import Button from '../../_components/Button';
+import { dashboardActions } from '../../_actions';
 
 const list = [
     {
@@ -30,55 +32,48 @@ const list = [
             {'name': 'Dor na coluna', 'level': 3}
         ]
     },
-    {
-        'id': 3,
-        'med_record': '002',
-        'patient_name': 'Graça Ferreira',
-        'alert_level': 'gray',
-        'date': '22/06/20 - 17:10',
-        'is_pendent': true,
-        'symptoms': [
-            {'name': 'Tosse', 'level': 1}
-        ]
-    },
+
 ];
 
-const alerts = list.map(function(item, i) {
-    return (
-        <tr key={item.id} className="list-item">
-            <td> {item.med_record} </td>
-            <td>
-                <strong> {item.patient_name} </strong>
-            </td>
-            <td> <AlertLevel level={item.alert_level} /> </td>
-            <td> {item.date} </td>
-            <td> <AlertStatus is_pendent={item.is_pendent} /> </td>
-            <td>
-                <Button
-                    primaryNegative
-                    upper
-                    bold
-                    text="Registrar evolução"
-                    padding="8px"
-                />
-            </td>
-            <td>
-                <Button
-                    primary
-                    upper
-                    bold
-                    text="Resumo do alerta"
-                    padding="8px"
-                />
-            </td>
-        </tr>
-    )
-});
-
 export default _ => {
+    const alerts = useSelector(state => state.dashboard.alerts);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(dashboardActions.getAlerts());
+    }, []);
+
     return (
         <>
-            {alerts}
+            {alerts.map(item => (
+                <tr key={item.id} className="list-item">
+                    <td> {item.med_record} </td>
+                    <td>
+                        <strong> {item.patient_name} </strong>
+                    </td>
+                    <td> <AlertLevel level={item.alert_level} /> </td>
+                    <td> {item.created_at} </td>
+                    <td> <AlertStatus is_pendent={item.is_pendent} /> </td>
+                    <td>
+                        <Button
+                            primaryNegative
+                            upper
+                            bold
+                            text="Registrar evolução"
+                            padding="8px"
+                        />
+                    </td>
+                    <td>
+                        <Button
+                            primary
+                            upper
+                            bold
+                            text="Resumo do alerta"
+                            padding="8px"
+                        />
+                    </td>
+                </tr>
+            ))}
         </>
     )
 }
