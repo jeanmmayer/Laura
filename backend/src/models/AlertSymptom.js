@@ -10,7 +10,12 @@ class alert_symptom extends Model {
             freezeTableName: true,
             timestamps: false
         })
-    }
+    };
+
+    static associate(models) {
+        this.belongsTo(models.Alert, { foreignKey: 'alert_id', as: 'alert_symptom' });
+        this.belongsTo(models.Symptom, { foreignKey: 'symptom_id', as: 'symptom' });
+    };
 }
 
 module.exports = alert_symptom;

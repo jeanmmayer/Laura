@@ -14,13 +14,40 @@ module.exports = {
         return res.json(alert);
     },
     async list(req, res) {
-        const search_term = `%${req.body.search}%` || '';
+        const search_term = req.body.search || '';
         const Op = Sequelize.Op;
+        let where_patient = {};
+
+        if(search_term) {
+            where_patient = {
+                [Op.or]: [
+                    {
+                        name: {
+                            [Op.iLike]: `%${search_term}%`
+                        }
+                    }, {
+                        med_record: {
+                            [Op.iLike]: `%${search_term}%`
+                        }
+                    }
+                ]
+            }
+        }
 
         let params = {
-            include: {
-                association: 'patient'
-            }
+            include: [
+                { association: 'history' },
+                {
+                    association: 'patient',
+                    where: where_patient
+                },
+                {
+                    association: 'alert_symptom',
+                    include: {
+                        association: 'symptom'
+                    }
+                }
+            ]
         };
 
         const alerts = await Alert.findAll(params);

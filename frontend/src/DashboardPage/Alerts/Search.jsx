@@ -28,9 +28,7 @@ export default _ => {
             search: value
         };
 
-        if(value) {
-            dispatch(alertActions.getAlerts(params));
-        }
+        dispatch(alertActions.getAlerts(params));
     };
 
     return (
@@ -38,7 +36,7 @@ export default _ => {
             <Td colSpan="7">
                 <form onSubmit={handleSearch}>
                     <Input
-                        placeholder="Busque por prontuários, nomes, níveis de alerta ou status"
+                        placeholder="Busque por prontuários e nome de pacientes"
                         value={search}
                         onChange={handleChange}
                     />
