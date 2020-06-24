@@ -13,8 +13,8 @@ router.post('/users', UserController.store);
 router.get('/users', UserController.list);
 
 // Alert
-router.post('/alerts', AlertController.store);
-router.get('/alerts', AlertController.list);
+router.post('/alerts/store', AlertController.store);
+router.post('/alerts/list', AlertController.list);
 
 // AlertHistory
 router.post('/alert/history', AlertHistoryController.store);

@@ -11,7 +11,7 @@ export default _ => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(alertActions.getAlerts());
+        dispatch(alertActions.getAlerts({}));
     }, []);
 
     return (

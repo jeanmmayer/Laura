@@ -7,13 +7,17 @@ export const alertService = {
     storeEvolution
 };
 
-function getAlerts() {
+function getAlerts(params) {
+    const headers = authHeader();
+    headers['Content-Type'] = 'application/json';
+
     const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(params)
     };
 
-    return fetch(`${config.apiUrl}/api/alerts`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/api/alerts/list`, requestOptions).then(handleResponse);
 };
 
 

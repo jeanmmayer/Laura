@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Input from '../../_components/Input';
 import styled from 'styled-components';
+import { alertActions } from '../../_actions';
 
 const Td = styled.td`
     background-color: #E3E3E3;
@@ -8,12 +10,39 @@ const Td = styled.td`
 `;
 
 export default _ => {
+    const [search, setSearch] = useState('');
+
+    const dispatch = useDispatch();
+
+    function handleChange(e) {
+        const value = e.target.value;
+        setSearch(value);
+
+        // TODO: Should search this function only after typing stop
+        handleSearch(value);
+
+    };
+
+    function handleSearch(value) {
+        const params = {
+            search: value
+        };
+
+        if(value) {
+            dispatch(alertActions.getAlerts(params));
+        }
+    };
+
     return (
         <tr>
             <Td colSpan="7">
-                <Input
-                    placeholder="Busque por prontuários, nomes, níveis de altera ou status"
-                />
+                <form onSubmit={handleSearch}>
+                    <Input
+                        placeholder="Busque por prontuários, nomes, níveis de alerta ou status"
+                        value={search}
+                        onChange={handleChange}
+                    />
+                </form>
             </Td>
         </tr>
     );

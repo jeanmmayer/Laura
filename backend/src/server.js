@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+var bodyParser = require('body-parser');
 const privateRoutes = require('./privateRoutes');
 const publicRoutes = require('./publicRoutes');
 
@@ -11,7 +12,14 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use(bodyParser.json());
+
+
+// app.use(express.json());
 app.use('/oapi', publicRoutes);
 app.use('/api', privateRoutes);
 

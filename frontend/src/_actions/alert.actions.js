@@ -6,12 +6,12 @@ export const alertActions = {
     storeEvolution
 };
 
-function getAlerts() {
+function getAlerts(params) {
     function success(alerts) { return { type: alertConstants.GET_ALERTS_SUCCESS, alerts } };
     function failure(error) { return { type: alertConstants.GET_ALERTS_FAILURE, error } };
 
     return dispatch => {
-        alertService.getAlerts()
+        alertService.getAlerts(params)
             .then(
                 alerts => dispatch(success(alerts)),
                 error => dispatch(failure(error.toString()))

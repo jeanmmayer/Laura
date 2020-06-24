@@ -1,4 +1,5 @@
 const Alert = require('../models/Alert');
+const Sequelize = require('sequelize');
 
 module.exports = {
     // Not using store function
@@ -12,9 +13,10 @@ module.exports = {
 
         return res.json(alert);
     },
-
     async list(req, res) {
-        const search_term = req.body.search || '';
+        const search_term = `%${req.body.search}%` || '';
+        const Op = Sequelize.Op;
+
         let params = {
             include: {
                 association: 'patient'
