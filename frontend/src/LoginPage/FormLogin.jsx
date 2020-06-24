@@ -15,6 +15,7 @@ export default _ => {
         email: '',
         password: ''
     });
+
     const [submitted, setSubmitted] = useState(false);
     const { email, password } = inputs;
     const loggingIn = useSelector(state => state.authentication.loggingIn);
@@ -72,10 +73,10 @@ export default _ => {
                         primary={true}
                         upper
                         bold
+                        type="submit"
                         loading={loggingIn}
                         onClick={handleSubmit}
                         margin="10px 0"
-                        type="button"
                         text="Entrar"
                     />
                     <Button

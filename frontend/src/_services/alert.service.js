@@ -2,8 +2,9 @@ import { userService } from './user.service';
 import config from 'config';
 import { authHeader } from '../_helpers';
 
-export const dashboardService = {
-    getAlerts
+export const alertService = {
+    getAlerts,
+    storeEvolution
 };
 
 function getAlerts() {
@@ -13,6 +14,20 @@ function getAlerts() {
     };
 
     return fetch(`${config.apiUrl}/api/alerts`, requestOptions).then(handleResponse);
+};
+
+
+function storeEvolution(alert_id, text) {
+    const headers = authHeader();
+    headers['Content-Type'] = 'application/json';
+
+    const requestOptions = {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({ alert_id, text })
+    };
+
+    return fetch(`${config.apiUrl}/api/alert/history`, requestOptions).then(handleResponse);
 };
 
 function logout() {

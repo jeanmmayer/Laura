@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import If from './If';
+import './spinner.css';
 
 let Button = styled.button`
     cursor: pointer;
@@ -95,6 +97,7 @@ export default props => {
                 padding: props.padding
             }}
         >
+            <If test={props.loading}> <div id="loading"></div> </If>
             { props.text }
         </Button>
     )

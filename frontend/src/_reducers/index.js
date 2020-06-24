@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
 import { authentication } from './authentication.reducer';
-import { dashboard } from './dashboard.reducer';
+import { alert } from './alert.reducer';
 
 const rootReducer = combineReducers({
   authentication,
-  dashboard
+  alert
 });
 
 export default rootReducer;
