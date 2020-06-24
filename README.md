@@ -18,6 +18,7 @@ Projeto simples para acompanhamento de pacientes e registro de evolução.
 - Na primeira aba:
   - `npm install;`
   - `cd docker;`
+  - `docker pull postgres`;
   - `docker-compose up tad;`
 
 - Na segunda aba
