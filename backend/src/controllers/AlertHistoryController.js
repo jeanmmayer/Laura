@@ -1,4 +1,5 @@
 const AlertHistory = require('../models/AlertHistory');
+const Alert = require('../models/Alert');
 
 module.exports = {
     async store(req, res) {
@@ -8,6 +9,12 @@ module.exports = {
             alert_id,
             text,
             created_at: new Date()
+        });
+
+        await Alert.update({ is_pendent: false }, {
+            where: {
+                id: alert_id
+            }
         });
 
         return res.json(alert_history);

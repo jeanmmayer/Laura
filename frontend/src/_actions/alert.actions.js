@@ -29,9 +29,14 @@ function storeEvolution(alert_id, modalText) {
 
         alertService.storeEvolution(alert_id, modalText)
             .then(
-                alerts => dispatch(success()),
-                error => dispatch(failure(error.toString()))
-            );
+                alerts => {
+                    dispatch(success());
+                    dispatch(getAlerts({}));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+        );
     };
 };
 
