@@ -1,0 +1,33 @@
+.container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #6e6e6e;
+}
+
+.container > div {
+    padding: 10px;
+}
+
+.container h4 {
+    text-align: center;
+}
+
+.container table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.container table td {
+    border: 1px solid #e8e8e8;
+    padding: 15px;
+}
+
+.container ul {
+    list-style-type: none;
+}
+
+.container ul li {
+    padding: 15px;
+    border-bottom: 1px solid #e8e8e8;
+}
