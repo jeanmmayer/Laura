@@ -23,6 +23,7 @@ export default props => {
 
         if (props.alert_id && modalText) {
             dispatch(alertActions.storeEvolution(props.alert_id, modalText));
+            setEvolutionIsOpen(false);
         }
     };
 
