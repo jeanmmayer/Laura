@@ -33,8 +33,8 @@ Projeto simples para acompanhamento de pacientes e registro de evolução.
 
 Após os procedimentos, estará criado um usuário padrão, de testes.
 
-Login: user@example.com
-Senha: 1234
+- Login: user@example.com
+- Senha: 1234
 
 O projeto abrirá em [http://localhost:8080](http://localhost:8080) e o servidor estará rodando em [http://localhost:4000](http://localhost:4000)
 
