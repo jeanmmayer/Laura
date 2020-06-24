@@ -31,9 +31,35 @@ const Gray = styled(Generic)`
     color: #383D41;
 `;
 
+function defineLevel(symptoms) {
+    if(symptoms) {
+        let level = '';
+        let highest = 0;
+
+        symptoms.map(function(symptom, i) {
+            if(symptom.symptom.level > highest) {
+                highest = symptom.symptom.level;
+            }
+        });
+
+        if(highest == 0) {
+            return 'gray';
+        } else if (highest == 1) {
+            return 'blue';
+        } else if (highest == 2 || highest == 3) {
+            return 'yellow';
+        } else {
+            return 'red';
+        }
+
+    }
+}
+
 export default props => {
 
-    switch(props.level) {
+    let level = defineLevel(props.data);
+
+    switch(level) {
         case 'gray':
             return (
                 <Gray> cinza </Gray>

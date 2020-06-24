@@ -22,7 +22,7 @@ export default _ => {
                     <td>
                         <strong> {item.patient.name} </strong>
                     </td>
-                    <td> <AlertLevel level={item.history} /> </td>
+                    <td> <AlertLevel data={item.alert_symptom} /> </td>
                     <td> {moment(item.created_at).format("DD/MM/YY - HH:mm")} </td>
                     <td> <AlertStatus is_pendent={item.is_pendent} /> </td>
                     <ButtonsActions alert_id={item.id} />
